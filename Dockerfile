@@ -7,6 +7,8 @@ ENV NODE_ENV=production
 # 设置 PORT 环境变量为默认值 3000
 ENV PORT=3000
 
+ENV FLIE_PATH /tmp/
+
 # 暴露容器监听的端口
 EXPOSE ${PORT}
 
@@ -24,6 +26,6 @@ RUN apk update \
     && chmod 777 start.sh \
     && npm install \
     && rm -rf /var/lib/apt/lists/*
-
+USER 10016
 # 启动应用程序
 CMD node index.js
